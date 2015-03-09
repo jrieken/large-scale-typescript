@@ -230,6 +230,44 @@ Monaco.Strings.Util.trim = function () { /* etc */ };
 				<small style="float: right; opacity: 0.8;">— Embarrassed Developer</small>
 				<img src="dependencies.png" style="width: 600px; border:none; box-shadow:none;" />
 			</section>
+			<section>
+				<h3>Script Order</h3>
+				<img src="script-order1.png" style="width: 500px; border:none; box-shadow:none;" />
+				<img src="script-order2.png" style="width: 700px; border:none; box-shadow:none;" />
+			</section>
+			<section>
+				<h3>Eager Script Loading</h3>
+				<img src="eager.png" style="width: 800px; border:none; box-shadow:none;" />
+			</section>
+			<section>
+				<h3>AMD</h3>
+				<p><strong>Asynchronous Module Definition</strong></p>
+				<pre><code data-trim class="typescript">
+define('module_id', ['dependency_id'], function(dependency) {​
+	// code
+	
+	return {​
+		// exports
+	};
+});
+				</code></pre>
+				<p><small>Popularized by <a href="http://requirejs.org/">RequireJS</a>.</small></p>
+			</section>
+			<section>
+				<h3>TypeScript External Modules</h3>
+				<p>TypeScript supports <emph>external modules</emph>, from which it can generate either <strong>CommonJS</strong> or <strong>AMD</strong> modules.</p>
+				<pre><code data-trim class="typescript">
+import dependency = require('dependency_id');
+
+export function foo() {
+	// code
+}
+				</code></pre>
+				<p class="fragment">While <emph>sharing code</emph> between CommonJS and AMD is hard by nature, TypeScript makes this a breeze.</p>
+			</section>
+			<section>
+				<h3>Demo</h3>
+			</section>
 		</div>
 	</div>
 	
