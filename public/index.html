@@ -268,6 +268,49 @@ export function foo() {
 			<section>
 				<h3>Demo</h3>
 			</section>
+			<section>
+				<h3>Post AMD</h3>
+				<blockquote>"It feels like a fresh shower.  Self contained modules, no more cycles, no more globals, clean file system structure."</blockquote>
+				<small style="float: right; opacity: 0.8;">— Happy Developer</small>
+			</section>
+			<section>
+				<h3>CSS Dependencies</h3>
+				<p>Managing <emph>CSS</emph> files was as big of a pain as it was managing JavaScript files.</p>
+				<p class="fragment" data-fragment-index="1">Virtual every CSS file is related to some AMD module.</p>
+				<p class="fragment" data-fragment-index="2">We implemented an <emph>AMD loader plugin</emph> that allows us to specify a CSS file as a module dependency.</p>
+				<p class="fragment" data-fragment-index="3">TypeScript supports this via a pragma comment.</p>
+				<pre class="fragment" data-fragment-index="3"><code data-trim class="typescript">
+/// &lt;amd-dependency path="vs/css!./hover" /&gt;
+
+define(['vs/css!./hover', ... ], function (...) { ... });
+				</code></pre>
+			</section>
+			<section>
+				<h3>Lazy Loading</h3>
+				<p>AMD allows us to <emph>lazy load</emph> modules.</p>
+				<pre><code data-trim class="typescript">
+// vs/languages/csharp.contribution
+
+modesExtensions.registerMode(
+	'vs.languages.csharp',  // mode name
+	['text/x-csharp'],      // mimetypes
+	'vs/languages/csharp'   // mode implementation
+	'CSMode'                // mode class
+);
+				</code></pre>
+				<pre><code data-trim class="typescript">
+// vs/languages/csharp
+
+export class CSMode {
+	// heavy stuff here
+}
+				</code></pre>
+			</section>
+			<section>
+				<h3>Bundles</h3>
+				<p>AMD allows us to <emph>optimize</emph> both the <strong>number</strong> of server requests and the <strong>size</strong> of each request.</p>
+				<p>We can <emph>bundle</emph> modules together.</p>
+			</section>
 		</div>
 	</div>
 	
