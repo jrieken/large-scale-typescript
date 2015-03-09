@@ -1,0 +1,20 @@
+.road-to-monaco tr :first-child {
+	background: #C8C8A9;
+}
+
+.road-to-monaco tr :nth-child(2) {
+	background: #F9CDAD;
+}
+
+.road-to-monaco tr :nth-child(3) {
+	background: #FC9D9A;
+}
+
+emph {
+	font-weight: bold;
+	color: #FC9D9A;
+}
+
+blockquote {
+	background: #bbb;
+}

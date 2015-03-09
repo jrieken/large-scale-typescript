@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="screen" href="/dist/reveal.js/css/reveal.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="/dist/reveal.js/css/theme/white.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/dist/reveal.js/lib/css/zenburn.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
@@ -86,6 +87,98 @@
 				<p>Large JavaScript application</p>
 				<p class="fragment">90% client side code</p>
 				<p class="fragment">10% server side code<br/><img src="node.png" style="border:none; box-shadow:none; width: 200px;" /></p>
+			</section>
+			<section>
+				<h3>The Road to Monaco</h3>
+				<table class="road-to-monaco">
+					<thead>
+						<tr>
+							<th>50 kLOC</th>
+							<th class="fragment fade-out" data-fragment-index="1">100 kLOC</th>
+							<th class="fragment fade-out" data-fragment-index="1">500 kLOC</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Modules<br/>Classes<br/>Interfaces<br/>Promises</td>
+							<td class="fragment fade-out" data-fragment-index="1">AMD<br/>Lazy Loading<br/>Contributions</td>
+							<td class="fragment fade-out" data-fragment-index="1">Components<br/>Dependency Injection</td>
+						</tr>
+						<tr>
+							<td>10% TypeScript</td>
+							<td class="fragment fade-out" data-fragment-index="1">50% TypeScript</td>
+							<td class="fragment fade-out" data-fragment-index="1">100% TypeScript</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="fragment fade-out" data-fragment-index="1">
+					<small style="float:right; opacity: 0.8;">today</small>
+					<small style="float:left">Autumn 2011</small>
+				</p>
+			</section>
+			<section>
+				<h3>We enjoy programming in JavaScript <span class="fragment">™</span></h3>
+			</section>
+			<section data-background="js.jpg"></section>
+			<section>
+				<h3>Pains</h3>
+				<p>Large code bases need to come up with <emph>compensating</emph> patterns for <strong>classes</strong>, <strong>modules</strong> and <strong>namespaces</strong>.</p>
+				<p class="fragment">Refactoring JavaScript code is <emph>difficult</emph>.</p>
+				<p class="fragment"><q>"Javascript code rots over time."</q> - Frustrated Developer</p>
+				<p class="fragment">Describing <strong>APIs</strong> means keeping documentation <emph>sychronized</emph> with the implementation.</p>
+			</section>
+			<section>
+				<h3>TypeScript to the rescue</h3>
+				<p>All <strong>JavaScript</strong> code is <strong>TypeScript</strong>.</p>
+				<p>JavaScript libraries work with TypeScript.</p>
+				<pre><code data-trim class="typescript">
+function Greeter(greeting) {
+    this.greeting = greeting;
+}
+
+Greeter.prototype.greet = function() {
+    return "Hello, " + this.greeting;
+};
+				</code></pre>
+			</section>
+			<section>
+				<h3>TypeScript to the rescue</h3>
+				<p>Structural typing, type inference.</p>
+				<p><emph>Zero run time cost</emph> — Types disappear at run time.</p>
+				<pre><code data-trim class="typescript">
+var person = {
+	name: 'João',
+	male: true,
+	country: 'Portugal'
+};
+
+// error
+var lastName = person.lastName;
+
+// isMale is of type boolean
+var isMale = person.male;
+				</code></pre>
+			</section>
+			<section>
+				<h3>TypeScript to the rescue</h3>
+				<p>Compiles to <emph>idiomatic</emph> JavaScript.</p>
+				<p>Runs <emph>everywhere</emph>.</p>
+				<pre class="fragment"><code data-trim class="typescript">
+// DOM access
+
+var button = document.createElement('button');
+button.textContent = "Say Hello";
+button.onclick = () => alert('Hello!');
+				</code></pre>
+				<pre class="fragment"><code data-trim class="typescript">
+// Node.JS Express server
+
+var express = require('express');
+var app = express();
+
+app.get('/', (req, res) => res.send('Hello!'));
+app.listen(3000);
+				</code></pre>
 			</section>
 		</div>
 	</div>
