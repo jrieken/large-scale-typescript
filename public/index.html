@@ -113,7 +113,7 @@
 				</table>
 				<p class="fragment fade-out" data-fragment-index="1">
 					<small style="float:right; opacity: 0.8;">today</small>
-					<small style="float:left">Autumn 2011</small>
+					<small style="float:left; opacity: 0.8;">Autumn 2011</small>
 				</p>
 			</section>
 			<section>
@@ -124,7 +124,7 @@
 				<h3>Pains</h3>
 				<p>Large code bases need to come up with <emph>compensating</emph> patterns for <strong>classes</strong>, <strong>modules</strong> and <strong>namespaces</strong>.</p>
 				<p class="fragment">Refactoring JavaScript code is <emph>difficult</emph>.</p>
-				<p class="fragment"><q>"Javascript code rots over time."</q> - Frustrated Developer</p>
+				<p class="fragment"><q>"Javascript code rots over time."</q> — Frustrated Developer</p>
 				<p class="fragment">Describing <strong>APIs</strong> means keeping documentation <emph>sychronized</emph> with the implementation.</p>
 			</section>
 			<section>
@@ -179,6 +179,56 @@ var app = express();
 app.get('/', (req, res) => res.send('Hello!'));
 app.listen(3000);
 				</code></pre>
+			</section>
+			<section>
+				<h3>Demo</h3>
+			</section>
+			<section>
+				<h3>The Road to Monaco</h3>
+				<table class="road-to-monaco">
+					<thead>
+						<tr>
+							<th class="fragment fade-out" data-fragment-index="1">50 kLOC</th>
+							<th>100 kLOC</th>
+							<th class="fragment fade-out" data-fragment-index="1">500 kLOC</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="fragment fade-out" data-fragment-index="1">Modules<br/>Classes<br/>Interfaces<br/>Promises</td>
+							<td>AMD<br/>Lazy Loading<br/>Contributions</td>
+							<td class="fragment fade-out" data-fragment-index="1">Components<br/>Dependency Injection</td>
+						</tr>
+						<tr>
+							<td class="fragment fade-out" data-fragment-index="1">10% TypeScript</td>
+							<td>50% TypeScript</td>
+							<td class="fragment fade-out" data-fragment-index="1">100% TypeScript</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="fragment fade-out" data-fragment-index="1">
+					<small style="float:right; opacity: 0.8;">today</small>
+					<small style="float:left; opacity: 0.8;">Autumn 2011</small>
+				</p>
+			</section>
+			<section>
+				<h3>Code Organization</h3>
+				<p><emph>Namespaces</emph> were global object bags.</p>
+				<pre><code data-trim class="typescript">
+var Monaco = {};
+Monaco.Strings = {};
+Monaco.Strings.Util = {};
+Monaco.Strings.Util.trim = function () { /* etc */ };
+				</code></pre>
+				<p class="fragment">No relationship to the <emph>source files</emph> on disk.</p>
+				<p class="fragment">Renaming files, refactoring was a <strong>huge</strong> pain.</p>
+				<p class="fragment"><emph>Cycling dependencies</emph> were easily unnoticed.</p>
+			</section>
+			<section>
+				<h3>Dependency Management</h3>
+				<blockquote>"… our dependency graph was such a mess that each area had a dependency on just about every other area."</blockquote>
+				<small style="float: right; opacity: 0.8;">— Embarrassed Developer</small>
+				<img src="dependencies.png" style="width: 600px; border:none; box-shadow:none;" />
 			</section>
 		</div>
 	</div>
