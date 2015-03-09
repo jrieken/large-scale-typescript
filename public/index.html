@@ -311,6 +311,116 @@ export class CSMode {
 				<p>AMD allows us to <emph>optimize</emph> both the <strong>number</strong> of server requests and the <strong>size</strong> of each request.</p>
 				<p>We can <emph>bundle</emph> modules together.</p>
 			</section>
+			<section>
+				<h3>The Road to Monaco</h3>
+				<table class="road-to-monaco">
+					<thead>
+						<tr>
+							<th class="fragment fade-out" data-fragment-index="1">50 kLOC</th>
+							<th class="fragment fade-out" data-fragment-index="1">100 kLOC</th>
+							<th>500 kLOC</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="fragment fade-out" data-fragment-index="1">Modules<br/>Classes<br/>Interfaces<br/>Promises</td>
+							<td class="fragment fade-out" data-fragment-index="1">AMD<br/>Lazy Loading<br/>Contributions</td>
+							<td>Components<br/>Dependency Injection</td>
+						</tr>
+						<tr>
+							<td class="fragment fade-out" data-fragment-index="1">10% TypeScript</td>
+							<td class="fragment fade-out" data-fragment-index="1">50% TypeScript</td>
+							<td>100% TypeScript</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="fragment fade-out" data-fragment-index="1">
+					<small style="float:right; opacity: 0.8;">today</small>
+					<small style="float:left; opacity: 0.8;">Autumn 2011</small>
+				</p>
+			</section>
+			<section>
+				<h3>Towards 100% TypeScript</h3>
+				<p>Migration out of developer will.</p>
+				<p class="fragment">It's mainly <emph>code clean-up</emph> but sometimes it is <strong>real work</strong>. We estimated a speed of <strong>300 LOC/hour</strong>.</p>
+				<p class="fragment">While having a stricter syntax, TypeScript still allows for some syntactic liberties.</p>
+				<p class="fragment">We established <emph>team specific rules</emph> for the migration, such as <strong>no implicit <code>any</code> types</strong> or <strong>no missing return statements</strong>.</p>
+			</section>
+			<section>
+				<h3>Hindsight Quotes</h3>
+				<blockquote>"In JavaScript, you really are at the mercy of your ability to spell."</blockquote>
+				<pre><code data-trim class="typescript">
+// or is it startMarkerId?
+delete this.markers[range.statMarkerId];
+				</code></pre>
+				<div class="fragment">
+					<blockquote>"Soon enough, I realized how inconsistent I was. The same data was flowing around in at least 3 different formats!"</blockquote>
+					<small style="float: right; opacity: 0.8;">— Enlightened Developer</small>
+				</div>
+			</section>
+			<section>
+				<h3>Components</h3>
+				<p>We <emph>distribute</emph> our modules by compiling to a set of JavaScript files and generating a <code>.d.ts</code> file.</p>
+				<div class="fragment">
+					<p><emph><code>.d.ts</code></emph> files allow to describe API. </p>
+					<pre><code data-trim class="typescript">
+/**
+ * A selection in the editor
+ */
+export interface IEditorSelection extends ISelection {
+	/**
+	 * Test if equals other selection
+	 */
+	equalsSelection(other: ISelection): boolean;
+	
+	// ...
+}
+					</code></pre>
+				</div>
+			</section>
+			<section>
+				<h3>Services, Dependency Injection</h3>
+				<p>We came up with our own services and dependency injection framework to help with <emph>decoupling</emph>.</p>
+				<div class="fragment">
+					<pre><code data-trim class="typescript">
+export interface IMarkerService {
+	change(owner: string, resource: URI, markers: IMarkerData[]): void;
+}
+
+class MarkerNavigationAction {
+	constructor(ctx: Services.IPlatformServices) {
+		this.markerService = ctx.markerService;
+	}
+}
+					</code></pre>
+				</div>
+			</section>
+			<section>
+				<h3>TypeScript Retrospective</h3>
+				<p>We were always on the bleeding edge...</p>
+				<p class="fragment">... but would always do it again.</p>
+				<div class="fragment">
+					<p>The <emph>benefits</emph> clearly outweight the <emph>pains</emph>.</p>
+					<ul>
+						<li>confidence</li>
+						<li>refactoring agility</li>
+						<li>tooling</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h3>Starting a New Project?</h3>
+				<ul>
+					<li>Start with TypeScript.</li>
+					<li>Use external modules.</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Thanks!</h3>
+				<p><a href="http://azure.microsoft.com/en-us/services/websites/?rnd=1">http://tinyurl.com/trymonaco</a></p>
+				<p><a href="http://www.typescriptlang.org/">http://www.typescriptlang.org/</a></p>
+				<p><a href="#">Slides</a></p>
+			</section>
 		</div>
 	</div>
 	
