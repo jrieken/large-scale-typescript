@@ -350,8 +350,8 @@ export class CSMode {
 				<h3>Hindsight Quotes</h3>
 				<blockquote>"In JavaScript, you really are at the mercy of your ability to spell."</blockquote>
 				<pre><code data-trim class="typescript">
-// or is it startMarkerId?
 delete this.markers[range.statMarkerId];
+// or is it startMarkerId?
 				</code></pre>
 				<div class="fragment">
 					<blockquote>"Soon enough, I realized how inconsistent I was. The same data was flowing around in at least 3 different formats!"</blockquote>
@@ -384,7 +384,7 @@ export interface IEditorSelection extends ISelection {
 				<div class="fragment">
 					<pre><code data-trim class="typescript">
 export interface IMarkerService {
-	change(owner: string, resource: URI, markers: IMarkerData[]): void;
+	change(owner: string, resource: URI, markers: IMarker[]): void;
 }
 
 class MarkerNavigationAction {
