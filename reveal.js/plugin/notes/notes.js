@@ -107,7 +107,7 @@ var RevealNotes = (function() {
 		document.addEventListener( 'keydown', function( event ) {
 			// Disregard the event if the target is editable or a
 			// modifier is present
-			if ( document.querySelector( ':focus' ) !== null || event.shiftKey || event.altKey || event.ctrlKey || event.metaKey ) return;
+			if ( /*document.querySelector( ':focus' ) !== null || */event.shiftKey || event.altKey || event.ctrlKey || event.metaKey ) return;
 
 			if( event.keyCode === 83 ) {
 				event.preventDefault();
