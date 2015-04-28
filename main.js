@@ -1,3 +1,4 @@
+/* global Reveal */
 Reveal.initialize({
 	controls: false,
 	progress: false,
