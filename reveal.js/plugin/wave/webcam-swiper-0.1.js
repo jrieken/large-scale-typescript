@@ -205,6 +205,9 @@ function initializeWebcamSwiper() {
 			// 	return value / dataLength;
 			// }
 		});
+	}, function(error) {
+		console.error("Failed to access Webcam");
+		console.error(error);
 	});
 }
 
