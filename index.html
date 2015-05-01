@@ -14,7 +14,7 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h2>Building a large scale JavaScript application  in TypeScript</h2>
+				<h2>Building a large scale JavaScript application in TypeScript</h2>
 				<p><strong>Johannes Rieken</strong><br/><a href="mailto:jrieken@microsoft.com">jrieken@microsoft.com</a></p>
 				<p><img src="microsoft.png" style="border:none; box-shadow:none;" /></p>
 			</section>
@@ -62,14 +62,14 @@
 				</h3>
 				<p><img src="winjs-screenshot.png" /></p>
 			</section>
-			<section>
+<!--			<section>
 				<h3>
 					<a href="http://www.rise4fun.com/" style="text-transform:none;color:black;font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;">
 						rise4fun
 					</a>
 				</h3>
 				<p><img src="rise4fun-screenshot.png" /></p>
-			</section>
+			</section>-->
 			<section>
 				<h3>
 					<a href="http://channel9.msdn.com/Series/Visual-Studio-Online-Monaco">
@@ -87,13 +87,14 @@
 				<p><img src="vscode-screenshot.png" /></p>
 			</section>
 			<section>
-				<h3>Visual Studio Online "Monaco"</h3>
+				<h3>Visual Studio Code</h3>
 				<p>Large JavaScript application</p>
-				<p class="fragment">90% client side code</p>
-				<p class="fragment">10% server side code<br/><img src="node.png" style="border:none; box-shadow:none; width: 200px;" /></p>
+				<p class="fragment">Electron</p>
+				<p class="fragment">90% browser code</p>
+				<p class="fragment">10% io.js code<br/><img src="io.png" style="border:none; box-shadow:none; width: 200px;" /></p>
 			</section>
 			<section>
-				<h3>The Road to Monaco</h3>
+				<h3>The Road to VSCode</h3>
 				<table class="road-to-monaco">
 					<thead>
 						<tr>
@@ -151,14 +152,14 @@ Greeter.prototype.greet = function() {
 				<p><emph>Zero run time cost</emph> — Types disappear at run time.</p>
 				<pre><code data-trim class="typescript">
 var person = {
-	name: 'Johannes',
+	cyclist: 'Johannes',
 	bikes: ['Santa Cruz Nomad CC', 'Intense Carbine 29', 'Liteville 301']
 };
 
 // error
-var lastName = person.lastName;
+var rider = person.rider;
 
-// bikes is of type string-array
+// bikes is of type array of strings
 var bikes = person.bikes;
 				</code></pre>
 			</section>
@@ -219,9 +220,9 @@ app.listen(3000);
 				<p><emph>Namespaces</emph> were global object bags.</p>
 				<pre><code data-trim class="typescript">
 var Monaco = {};
-Monaco.Strings = {};
-Monaco.Strings.Util = {};
-Monaco.Strings.Util.trim = function () { /* etc */ };
+Monaco.Util.Strings = {};
+Monaco.Util.Strings = {};
+Monaco.Util.Strings.trim = function () { /* etc */ };
 				</code></pre>
 				<p class="fragment">No relationship to the <emph>source files</emph> on disk.</p>
 				<p class="fragment">Renaming files, refactoring was a <strong>huge</strong> pain.</p>
@@ -273,7 +274,7 @@ export function foo() {
 			</section>
 			<section>
 				<h3>Post AMD</h3>
-				<blockquote>"It feels like a fresh shower.  Self contained modules, no more cycles, no more globals, clean file system structure."</blockquote>
+				<blockquote>"It feels like a fresh shower. Self contained modules, no more cycles, no more globals, clean file system structure."</blockquote>
 				<small style="float: right; opacity: 0.8;">— Happy Developer</small>
 			</section>
 			<section>
