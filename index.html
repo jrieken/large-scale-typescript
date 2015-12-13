@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Building a large scale JavaScript application  in TypeScript</title>
+	<title>Building a large scale JavaScript application in TypeScript</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="screen" href="reveal.js/css/reveal.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="reveal.js/css/theme/white.css" />
@@ -18,9 +18,9 @@
 				<p><strong>Johannes Rieken</strong><br/><a href="mailto:jrieken@microsoft.com">jrieken@microsoft.com</a></p>
 				<p><img src="microsoft.png" style="border:none; box-shadow:none;" /></p>
 			</section>
-			<section>
+			<!--<section>
 				<h3>Focus on code</h3>
-			</section>
+			</section>-->
 			<section>
 				<h3>
 					<a href="https://onedrive.live.com/">
@@ -53,14 +53,14 @@
 				</h3>
 				<p><img src="f12.png" /></p>
 			</section>
-			<section>
+			<!--<section>
 				<h3>
 					<a href="https://dev.windows.com/en-us/develop/winjs">
 						<img src="winjs.png" style="border:none; box-shadow:none; width: 200px;" />
 					</a>
 				</h3>
 				<p><img src="winjs-screenshot.png" /></p>
-			</section>
+			</section>-->
 <!--			<section>
 				<h3>
 					<a href="http://www.rise4fun.com/" style="text-transform:none;color:black;font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;">
@@ -69,18 +69,18 @@
 				</h3>
 				<p><img src="rise4fun-screenshot.png" /></p>
 			</section>-->
-			<section>
+			<!--<section>
 				<h3>
 					<a href="http://channel9.msdn.com/Series/Visual-Studio-Online-Monaco">
 						<img src="monaco.png" style="border:none; box-shadow:none; width: 500px;" />
 					</a>
 				</h3>
 				<p><img src="monaco-screenshot.png" /></p>
-			</section>
+			</section>-->
 			<section>
 				<h3>
 					<a href="https://code.visualstudio.com/">
-						<img src="vscode.png" style="border:none; box-shadow:none; width: 483px;" />
+						VS Code
 					</a>
 				</h3>
 				<p><img src="vscode-screenshot.png" /></p>
@@ -89,10 +89,10 @@
 				<h3>Visual Studio Code</h3>
 				<p>Large JavaScript application</p>
 				<p class="fragment">Electron</p>
-				<p class="fragment">90% browser code</p>
-				<p class="fragment">10% io.js code<br/><img src="io.png" style="border:none; box-shadow:none; width: 200px;" /></p>
+				<p class="fragment">90% Browser-code</p>
+				<p class="fragment">10% Node.js-code</p>
 			</section>
-			<section>
+			<!--<section>
 				<h3>The Road to VSCode</h3>
 				<table class="road-to-monaco">
 					<thead>
@@ -119,20 +119,23 @@
 					<small style="float:right; opacity: 0.8;">today</small>
 					<small style="float:left; opacity: 0.8;">Autumn 2011</small>
 				</p>
-			</section>
+			</section>-->
 			<section>
 				<h3>We enjoy programming in JavaScript™</h3>
+			</section>
+            <section>
+				<h3>but...</h3>
 			</section>
 			<section data-background="giphy_danger.gif"></section>
 			<section data-background="js.jpg"></section>
 			<section>
 				<h3>Pains</h3>
-				<p>Large code bases need to come up with <emph>compensating</emph> patterns for <strong>classes</strong>, <strong>modules</strong> and <strong>namespaces</strong>.</p>
-				<p class="fragment">Refactoring JavaScript code is <emph>difficult</emph>.</p>
-				<p class="fragment"><q>"Javascript code rots over time."</q> — Frustrated Developer</p>
-				<p class="fragment">Describing <strong>APIs</strong> means keeping documentation <emph>sychronized</emph> with the implementation.</p>
+                <p>No semantic checks</p>
+                <p>No code navigation</p>
+                <p>No code refactorings</p>
+                <p>No module system</p>
 			</section>
-			<section>
+			<!--<section>
 				<h3>TypeScript to the rescue</h3>
 				<p>All <strong>JavaScript</strong> code is <strong>TypeScript</strong>.</p>
 				<p>JavaScript libraries work with TypeScript.</p>
@@ -145,8 +148,8 @@ Greeter.prototype.greet = function() {
     return "Hello, " + this.greeting;
 };
 				</code></pre>
-			</section>
-			<section>
+			</section>-->
+			<!--<section>
 				<h3>TypeScript to the rescue</h3>
 				<p>Structural typing, type inference.</p>
 				<p><emph>Zero run time cost</emph> — Types disappear at run time.</p>
@@ -154,8 +157,8 @@ Greeter.prototype.greet = function() {
 var person = {
 	cyclist: 'Johannes',
 	bikes: [
-	    'Santa Cruz Nomad CC', 
-		'Intense Carbine 29', 
+	    'Santa Cruz Nomad CC',
+		'Intense Carbine 29',
 		'Liteville 301'
 	]
 };
@@ -166,32 +169,16 @@ var rider = person.rider;
 // bikes is of type array of strings
 var bikes = person.bikes;
 				</code></pre>
-			</section>
+			</section>-->
 			<section>
 				<h3>TypeScript to the rescue</h3>
-				<p>Compiles to <emph>idiomatic</emph> JavaScript.</p>
-				<p>Runs <emph>everywhere</emph>.</p>
-				<pre class="fragment"><code data-trim class="typescript">
-// DOM access
-
-var button = document.createElement('button');
-button.textContent = "Say Hello";
-button.onclick = () => alert('Hello!');
-				</code></pre>
-				<pre class="fragment"><code data-trim class="typescript">
-// Node.JS Express server
-
-var express = require('express');
-var app = express();
-
-app.get('/', (req, res) => res.send('Hello!'));
-app.listen(3000);
-				</code></pre>
+				<p>Downlevel-compiler for JavaScript*</p>
+                <p><emph>*that's more than just adding classes</emph></p>
 			</section>
 <!--			<section>
 				<h3>Demo</h3>
 			</section>-->
-			<section>
+			<!--<section>
 				<h3>The Road to VSCode</h3>
 				<table class="road-to-monaco">
 					<thead>
@@ -253,7 +240,7 @@ Monaco.Util.Strings.trim = function () { /* etc */ };
 				<pre><code data-trim class="typescript">
 define('module_id', ['dependency_id'], function(dependency) {​
 	// code
-	
+
 	return {​
 		// exports
 	};
@@ -275,9 +262,9 @@ export function foo() {
 			</section>
 			<section>
 				<h3>Demo</h3>
-			</section>
+			</section>-->
 			<section data-background="giphy_party2.gif"></section>
-			<section>
+			<!--<section>
 				<h3>Post AMD</h3>
 				<blockquote>"It feels like a fresh shower. Self contained modules, no more cycles, no more globals, clean file system structure."</blockquote>
 				<small style="float: right; opacity: 0.8;">— Happy Developer</small>
@@ -381,7 +368,7 @@ export interface IEditorSelection extends ISelection {
 	 * Test if equals other selection
 	 */
 	equalsSelection(other: ISelection): boolean;
-	
+
 	// ...
 }
 					</code></pre>
@@ -433,13 +420,17 @@ class MarkerNavigationAction {
 				<hr/>
 				<p><a href="mailto:jrieken@microsoft.com">jrieken@microsoft.com</a></p>
 				<p><img src="microsoft.png" style="border:none; box-shadow:none;" /></p>
-			</section>
+			</section>-->
+            <section>
+                <h3>TypeScript by sample</h3>
+                <emph>https://github.com/jrieken/typescript-tutorial</emph>
+            </section>
 			<section>
 				<p>image sources: http://giphy.com/gifs/party-infomercial-snuggie-TyPKuTkBXmBPO, http://giphy.com/gifs/party-vintage-V0BIjUQRfl8tO, http://giphy.com/gifs/transparent-loop-7JGIvN87NavFS</p>
 			</section>
 		</div>
 	</div>
-	
+
 	<script src="reveal.js/lib/js/head.min.js"></script>
 	<script src="reveal.js/js/reveal.js"></script>
 	<script src="main.js"></script>
