@@ -1,4 +1,4 @@
 function pi() {
-    var value = 3.145;
+    var value: number = 3.145;
     return value;
 }
